@@ -85,6 +85,11 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowDrop = true;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -93,28 +98,39 @@
             this.tYPDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.zGWREALIZACJIBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(17, 34);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(464, 73);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragDrop);
+            this.dataGridView1.DragEnter += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragEnter);
+            this.dataGridView1.DragOver += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragOver);
+            this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
+            this.dataGridView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseMove);
             // 
             // zGNRDataGridViewTextBoxColumn
             // 
             this.zGNRDataGridViewTextBoxColumn.DataPropertyName = "ZG_NR";
             this.zGNRDataGridViewTextBoxColumn.HeaderText = "ZG_NR";
             this.zGNRDataGridViewTextBoxColumn.Name = "zGNRDataGridViewTextBoxColumn";
+            this.zGNRDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // oPISDataGridViewTextBoxColumn
             // 
             this.oPISDataGridViewTextBoxColumn.DataPropertyName = "OPIS";
             this.oPISDataGridViewTextBoxColumn.HeaderText = "OPIS";
             this.oPISDataGridViewTextBoxColumn.Name = "oPISDataGridViewTextBoxColumn";
+            this.oPISDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tYPDataGridViewTextBoxColumn
             // 
             this.tYPDataGridViewTextBoxColumn.DataPropertyName = "TYP";
             this.tYPDataGridViewTextBoxColumn.HeaderText = "TYP";
             this.tYPDataGridViewTextBoxColumn.Name = "tYPDataGridViewTextBoxColumn";
+            this.tYPDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // zGWREALIZACJIBindingSource
             // 
@@ -128,6 +144,10 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowDrop = true;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeColumns = false;
             this.dataGridView2.AllowUserToResizeRows = false;
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -137,28 +157,39 @@
             this.tYPDataGridViewTextBoxColumn1});
             this.dataGridView2.DataSource = this.zGDOWGRANIABindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(17, 31);
+            this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.Size = new System.Drawing.Size(349, 86);
             this.dataGridView2.TabIndex = 1;
+            this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
+            this.dataGridView2.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView2_DragDrop);
+            this.dataGridView2.DragEnter += new System.Windows.Forms.DragEventHandler(this.dataGridView2_DragEnter);
+            this.dataGridView2.DragOver += new System.Windows.Forms.DragEventHandler(this.dataGridView2_DragOver);
+            this.dataGridView2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView2_MouseDown);
+            this.dataGridView2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dataGridView2_MouseMove);
             // 
             // zGNRDataGridViewTextBoxColumn1
             // 
             this.zGNRDataGridViewTextBoxColumn1.DataPropertyName = "ZG_NR";
             this.zGNRDataGridViewTextBoxColumn1.HeaderText = "ZG_NR";
             this.zGNRDataGridViewTextBoxColumn1.Name = "zGNRDataGridViewTextBoxColumn1";
+            this.zGNRDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // oPISDataGridViewTextBoxColumn1
             // 
             this.oPISDataGridViewTextBoxColumn1.DataPropertyName = "OPIS";
             this.oPISDataGridViewTextBoxColumn1.HeaderText = "OPIS";
             this.oPISDataGridViewTextBoxColumn1.Name = "oPISDataGridViewTextBoxColumn1";
+            this.oPISDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // tYPDataGridViewTextBoxColumn1
             // 
             this.tYPDataGridViewTextBoxColumn1.DataPropertyName = "TYP";
             this.tYPDataGridViewTextBoxColumn1.HeaderText = "TYP";
             this.tYPDataGridViewTextBoxColumn1.Name = "tYPDataGridViewTextBoxColumn1";
+            this.tYPDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // zGDOWGRANIABindingSource
             // 
@@ -167,6 +198,10 @@
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AllowDrop = true;
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AllowUserToResizeColumns = false;
             this.dataGridView3.AllowUserToResizeRows = false;
             this.dataGridView3.AutoGenerateColumns = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -176,28 +211,39 @@
             this.tYPDataGridViewTextBoxColumn2});
             this.dataGridView3.DataSource = this.zGZROBIONEBindingSource;
             this.dataGridView3.Location = new System.Drawing.Point(16, 31);
+            this.dataGridView3.MultiSelect = false;
             this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.Size = new System.Drawing.Size(359, 72);
             this.dataGridView3.TabIndex = 2;
+            this.dataGridView3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellDoubleClick);
+            this.dataGridView3.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView3_DragDrop);
+            this.dataGridView3.DragEnter += new System.Windows.Forms.DragEventHandler(this.dataGridView3_DragEnter);
+            this.dataGridView3.DragOver += new System.Windows.Forms.DragEventHandler(this.dataGridView3_DragOver);
+            this.dataGridView3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView3_MouseDown);
+            this.dataGridView3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dataGridView3_MouseMove);
             // 
             // zGNRDataGridViewTextBoxColumn2
             // 
             this.zGNRDataGridViewTextBoxColumn2.DataPropertyName = "ZG_NR";
             this.zGNRDataGridViewTextBoxColumn2.HeaderText = "ZG_NR";
             this.zGNRDataGridViewTextBoxColumn2.Name = "zGNRDataGridViewTextBoxColumn2";
+            this.zGNRDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // oPISDataGridViewTextBoxColumn2
             // 
             this.oPISDataGridViewTextBoxColumn2.DataPropertyName = "OPIS";
             this.oPISDataGridViewTextBoxColumn2.HeaderText = "OPIS";
             this.oPISDataGridViewTextBoxColumn2.Name = "oPISDataGridViewTextBoxColumn2";
+            this.oPISDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // tYPDataGridViewTextBoxColumn2
             // 
             this.tYPDataGridViewTextBoxColumn2.DataPropertyName = "TYP";
             this.tYPDataGridViewTextBoxColumn2.HeaderText = "TYP";
             this.tYPDataGridViewTextBoxColumn2.Name = "tYPDataGridViewTextBoxColumn2";
+            this.tYPDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // zGZROBIONEBindingSource
             // 
@@ -298,6 +344,7 @@
             // 
             this.comboBox2.DataSource = this.sTATUSYBindingSource;
             this.comboBox2.DisplayMember = "NAZWA";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(527, 25);
             this.comboBox2.Name = "comboBox2";
@@ -319,6 +366,7 @@
             // 
             this.comboBox1.DataSource = this.tYPYBindingSource;
             this.comboBox1.DisplayMember = "NAZWA";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(400, 25);
             this.comboBox1.Name = "comboBox1";
@@ -339,6 +387,7 @@
             this.richTextBox2.TabIndex = 8;
             this.richTextBox2.Text = "OPIS";
             this.richTextBox2.Click += new System.EventHandler(this.richTextBox2_Click);
+            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // richTextBox1
             // 
