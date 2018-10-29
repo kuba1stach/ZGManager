@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.zGNRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oPISDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +50,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -67,7 +69,8 @@
             this.tYPYTableAdapter = new ZGManager.ZGDataSetTableAdapters.TYPYTableAdapter();
             this.sTATUSYTableAdapter = new ZGManager.ZGDataSetTableAdapters.STATUSYTableAdapter();
             this.zgTableAdapter1 = new ZGManager.ZGDataSetTableAdapters.ZGTableAdapter();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.zGBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zGBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zGWREALIZACJIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zGDataSet)).BeginInit();
@@ -82,6 +85,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTATUSYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zGDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tYPYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zGBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zGBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -103,7 +108,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(464, 73);
+            this.dataGridView1.Size = new System.Drawing.Size(349, 73);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragDrop);
@@ -216,7 +221,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.Size = new System.Drawing.Size(359, 72);
+            this.dataGridView3.Size = new System.Drawing.Size(350, 72);
             this.dataGridView3.TabIndex = 2;
             this.dataGridView3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellDoubleClick);
             this.dataGridView3.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView3_DragDrop);
@@ -294,6 +299,20 @@
             this.panel1.Size = new System.Drawing.Size(784, 110);
             this.panel1.TabIndex = 6;
             // 
+            // panel5
+            // 
+            this.panel5.AllowDrop = true;
+            this.panel5.BackgroundImage = global::ZGManager.Properties.Resources.garbage_icon;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Location = new System.Drawing.Point(711, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(70, 60);
+            this.panel5.TabIndex = 4;
+            this.panel5.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel5_DragDrop);
+            this.panel5.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel5_DragEnter);
+            this.panel5.DragOver += new System.Windows.Forms.DragEventHandler(this.panel5_DragOver);
+            this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseMove);
+            // 
             // panel2
             // 
             this.panel2.AutoSize = true;
@@ -334,6 +353,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(654, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -344,15 +364,16 @@
             // 
             // comboBox2
             // 
-            this.comboBox2.DataSource = this.sTATUSYBindingSource;
-            this.comboBox2.DisplayMember = "NAZWA";
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Realizacja",
+            "Wgrywanie",
+            "Zrobione"});
             this.comboBox2.Location = new System.Drawing.Point(527, 25);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 10;
-            this.comboBox2.ValueMember = "REF";
             // 
             // sTATUSYBindingSource
             // 
@@ -390,6 +411,7 @@
             this.richTextBox2.Text = "OPIS";
             this.richTextBox2.Click += new System.EventHandler(this.richTextBox2_Click);
             this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            this.richTextBox2.Leave += new System.EventHandler(this.richTextBox2_Leave);
             // 
             // richTextBox1
             // 
@@ -399,6 +421,8 @@
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "ZG";
             this.richTextBox1.Click += new System.EventHandler(this.richTextBox1_Click);
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.richTextBox1.Leave += new System.EventHandler(this.richTextBox1_Leave);
             // 
             // label4
             // 
@@ -434,19 +458,15 @@
             // 
             this.zgTableAdapter1.ClearBeforeFill = true;
             // 
-            // panel5
+            // zGBindingSource
             // 
-            this.panel5.AllowDrop = true;
-            this.panel5.BackgroundImage = global::ZGManager.Properties.Resources.garbage_icon;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(711, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(70, 60);
-            this.panel5.TabIndex = 4;
-            this.panel5.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel5_DragDrop);
-            this.panel5.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel5_DragEnter);
-            this.panel5.DragOver += new System.Windows.Forms.DragEventHandler(this.panel5_DragOver);
-            this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseMove);
+            this.zGBindingSource.DataMember = "ZG";
+            this.zGBindingSource.DataSource = this.zGDataSet;
+            // 
+            // zGBindingSource1
+            // 
+            this.zGBindingSource1.DataMember = "ZG";
+            this.zGBindingSource1.DataSource = this.zGDataSet;
             // 
             // Form1
             // 
@@ -459,6 +479,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "ZGManager";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -480,6 +501,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTATUSYBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zGDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tYPYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zGBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zGBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -526,6 +549,8 @@
         private ZGDataSetTableAdapters.STATUSYTableAdapter sTATUSYTableAdapter;
         private ZGDataSetTableAdapters.ZGTableAdapter zgTableAdapter1;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.BindingSource zGBindingSource1;
+        private System.Windows.Forms.BindingSource zGBindingSource;
     }
 }
 

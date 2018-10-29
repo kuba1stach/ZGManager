@@ -9,13 +9,12 @@ C:\Users\jstach\Documents\Visual Studio 2013\Projects\ZGManager\ZGManager\obj\De
 C:\Users\jstach\Documents\Visual Studio 2013\Projects\ZGManager\ZGManager\obj\Debug\ZGManager.exe
 C:\Users\jstach\Documents\Visual Studio 2013\Projects\ZGManager\ZGManager\obj\Debug\ZGManager.pdb
 C:\Users\jstach\Documents\Visual Studio 2013\Projects\ZGManager\ZGManager\obj\Debug\ZGManager.csprojResolveAssemblyReference.cache
-E:\repos\ZGManager\ZGManager\bin\Debug\ZGManager.exe.config
-E:\repos\ZGManager\ZGManager\obj\Debug\ZGManager.exe
-E:\repos\ZGManager\ZGManager\obj\Debug\ZGManager.pdb
-E:\repos\ZGManager\ZGManager\bin\Debug\ZGManager.exe
-E:\repos\ZGManager\ZGManager\bin\Debug\ZGManager.pdb
-E:\repos\ZGManager\ZGManager\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb
-E:\repos\ZGManager\ZGManager\obj\Debug\ZGManager.csprojResolveAssemblyReference.cache
 E:\repos\ZGManager\ZGManager\obj\Debug\ZGManager.Form1.resources
 E:\repos\ZGManager\ZGManager\obj\Debug\ZGManager.Properties.Resources.resources
 E:\repos\ZGManager\ZGManager\obj\Debug\ZGManager.csproj.GenerateResource.Cache
+E:\repos\ZGManager\ZGManager\bin\Debug\ZGManager.exe.config
+E:\repos\ZGManager\ZGManager\bin\Debug\ZGManager.exe
+E:\repos\ZGManager\ZGManager\bin\Debug\ZGManager.pdb
+E:\repos\ZGManager\ZGManager\obj\Debug\ZGManager.exe
+E:\repos\ZGManager\ZGManager\obj\Debug\ZGManager.pdb
+E:\repos\ZGManager\ZGManager\obj\Debug\ZGManager.csprojResolveAssemblyReference.cache

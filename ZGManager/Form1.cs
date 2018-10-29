@@ -26,6 +26,7 @@ namespace ZGManager
             this.sTATUSYTableAdapter.Fill(this.zGDataSet.STATUSY);
             this.tYPYTableAdapter.Fill(this.zGDataSet.TYPY);
             this.zgTableAdapter1.Fill(this.zGDataSet.ZG);
+            this.comboBox2.SelectedItem = "Realizacja";
 
             UpdateControls();
         }
@@ -43,12 +44,28 @@ namespace ZGManager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            short selectedValue = 0;
+            if (comboBox2.SelectedItem == "Realizacja")
+            {
+                selectedValue = 0;
+            }
+            if (comboBox2.SelectedItem == "Wgrywanie")
+            {
+                selectedValue = 1;
+            }
+            if (comboBox2.SelectedItem == "Zrobione")
+            {
+                selectedValue = 2;
+            }
+            
+            
+
             zgTableAdapter1.Insert(
                 0,
                 Convert.ToInt32(richTextBox1.Text),
                 richTextBox2.Text,
                 Convert.ToInt16(comboBox1.SelectedValue),
-                Convert.ToInt16(comboBox2.SelectedValue),
+                selectedValue,
                 null,
                 null,
                 null,
@@ -172,8 +189,24 @@ namespace ZGManager
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-            button1.Enabled = richTextBox2.Text != "" ? true : false;
+            button1.Enabled = richTextBox2.Text != "" && richTextBox2.Text != "OPIS" && richTextBox1.Text != "" && richTextBox1.Text != "ZG" ? true : false;
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = richTextBox2.Text != "" && richTextBox2.Text != "OPIS" && richTextBox1.Text != "" && richTextBox1.Text != "ZG" ? true : false;
+        }
+
+        private void richTextBox1_Leave(object sender, EventArgs e)
+        {
+            richTextBox1.Text = richTextBox1.Text == "" ? "ZG" : richTextBox1.Text;
+        }
+
+        private void richTextBox2_Leave(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text == "" ? "OPIS" : richTextBox2.Text;
+        }
+
 
 //###############################################################################################################################
 
@@ -293,10 +326,20 @@ namespace ZGManager
             // If the drag operation was a copy then add the row to the other control.
             if (e.Effect == DragDropEffects.Copy)
             {
-                //int cellvalue = Convert.ToInt32(e.Data.GetData(typeof(int)));
                 string cellvalue = Convert.ToString(e.Data.GetData(typeof(string)));
                 ZGDataSet.ZGRow zgRow = GetRefByCellValue(cellvalue);
                 zgRow.STATUS = status;
+                /*zgTableAdapter1.Delete(
+                   zgRow.REF,
+                   zgRow.ZG_NR,
+                   zgRow.OPIS,
+                   zgRow.TYP,
+                   zgRow.STATUS,
+                   null,
+                   null,
+                   zgRow.REG_DATE,
+                   null
+                   );*/
 
                 UpdateDB();
                 UpdateControls();
@@ -338,6 +381,9 @@ namespace ZGManager
         {
             PanelMouseMove(panel5, e);
         }
+
+
+
 
 
 
