@@ -67,6 +67,7 @@
             this.tYPYTableAdapter = new ZGManager.ZGDataSetTableAdapters.TYPYTableAdapter();
             this.sTATUSYTableAdapter = new ZGManager.ZGDataSetTableAdapters.STATUSYTableAdapter();
             this.zgTableAdapter1 = new ZGManager.ZGDataSetTableAdapters.ZGTableAdapter();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zGWREALIZACJIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zGDataSet)).BeginInit();
@@ -284,6 +285,7 @@
             // 
             this.panel1.AutoSize = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -432,11 +434,26 @@
             // 
             this.zgTableAdapter1.ClearBeforeFill = true;
             // 
+            // panel5
+            // 
+            this.panel5.AllowDrop = true;
+            this.panel5.BackgroundImage = global::ZGManager.Properties.Resources.garbage_icon;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Location = new System.Drawing.Point(711, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(70, 60);
+            this.panel5.TabIndex = 4;
+            this.panel5.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel5_DragDrop);
+            this.panel5.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel5_DragEnter);
+            this.panel5.DragOver += new System.Windows.Forms.DragEventHandler(this.panel5_DragOver);
+            this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseMove);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -508,6 +525,7 @@
         private System.Windows.Forms.BindingSource sTATUSYBindingSource;
         private ZGDataSetTableAdapters.STATUSYTableAdapter sTATUSYTableAdapter;
         private ZGDataSetTableAdapters.ZGTableAdapter zgTableAdapter1;
+        private System.Windows.Forms.Panel panel5;
     }
 }
 

@@ -55,6 +55,7 @@ namespace ZGManager
                 null
                 );
             UpdateControls();
+            UpdateDB();
         }
 
 
@@ -76,7 +77,6 @@ namespace ZGManager
             DGVMouseDown(dataGridView3, e);
         }
 
-        
 
         private void dataGridView1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -93,7 +93,6 @@ namespace ZGManager
             DGVMouseMove(dataGridView3, e);
         }
 
-        
 
         private void dataGridView1_DragEnter(object sender, DragEventArgs e)
         {
@@ -125,6 +124,20 @@ namespace ZGManager
             e.Effect = DragDropEffects.Copy;
         }
 
+        private void panel5_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void panel5_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void panel5_DragDrop(object sender, DragEventArgs e)
+        {
+            PanelDragDrop(panel5, e, 3);
+        }
 
         private void dataGridView1_DragDrop(object sender, DragEventArgs e)
         {
@@ -135,7 +148,6 @@ namespace ZGManager
         {
             DGVDragDrop(dataGridView2, e, 1);
         }
-
 
         private void dataGridView3_DragDrop(object sender, DragEventArgs e)
         {
@@ -156,6 +168,11 @@ namespace ZGManager
         private void dataGridView3_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DGVCellDoubleClick(dataGridView3, e);
+        }
+
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = richTextBox2.Text != "" ? true : false;
         }
 
 //###############################################################################################################################
@@ -237,11 +254,42 @@ namespace ZGManager
             }
         }
 
+        private void PanelMouseMove(Panel panel, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                // If the mouse moves outside the rectangle, start the drag.
+                if (dragBoxFromMouseDown != Rectangle.Empty && !dragBoxFromMouseDown.Contains(e.X, e.Y))
+                {
+                    // Proceed with the drag and drop, passing in the list item.                    
+                    DragDropEffects dropEffect = panel.DoDragDrop(valueFromMouseDown, DragDropEffects.Copy);
+                }
+            }
+        }
+
         private void DGVDragDrop(DataGridView dgv, DragEventArgs e, short status)
         {
             // The mouse locations are relative to the screen, so they must be 
             // converted to client coordinates.
             Point clientPoint = dgv.PointToClient(new Point(e.X, e.Y));
+            // If the drag operation was a copy then add the row to the other control.
+            if (e.Effect == DragDropEffects.Copy)
+            {
+                //int cellvalue = Convert.ToInt32(e.Data.GetData(typeof(int)));
+                string cellvalue = Convert.ToString(e.Data.GetData(typeof(string)));
+                ZGDataSet.ZGRow zgRow = GetRefByCellValue(cellvalue);
+                zgRow.STATUS = status;
+
+                UpdateDB();
+                UpdateControls();
+            }
+        }
+
+        private void PanelDragDrop(Panel panel, DragEventArgs e, short status)
+        {
+            // The mouse locations are relative to the screen, so they must be 
+            // converted to client coordinates.
+            Point clientPoint = panel.PointToClient(new Point(e.X, e.Y));
             // If the drag operation was a copy then add the row to the other control.
             if (e.Effect == DragDropEffects.Copy)
             {
@@ -268,6 +316,7 @@ namespace ZGManager
 
         private ZGDataSet.ZGRow GetRefByCellValue(string cellvalue)
         {
+            this.zgTableAdapter1.Fill(this.zGDataSet.ZG);
             int _ref = Convert.ToInt16(zGDataSet.Tables["ZG"].Select("OPIS = '" + cellvalue + "'")[0].ItemArray[0]);
             return zGDataSet.ZG.FindByREF(_ref);
         }
@@ -285,10 +334,16 @@ namespace ZGManager
             }
         }
 
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        private void panel5_MouseMove(object sender, MouseEventArgs e)
         {
-            button1.Enabled = richTextBox2.Text != "" ? true : false;
+            PanelMouseMove(panel5, e);
         }
+
+
+
+
+
+
 
 
 
